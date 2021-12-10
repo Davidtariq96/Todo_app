@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+
+struct TodoItem: Codable {
+    let id: Int
+    let text: String
+    let isDone: Bool
+}
