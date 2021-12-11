@@ -6,3 +6,52 @@
 //
 
 import Foundation
+class TodoViewModel {
+    let defaultStorage = UserDefaults.standard
+    let key = "todoList"
+    var storage : [TodoItem] {
+        guard let todoData = defaultStorage.object(forKey: key) as? Data else {
+            return []
+        }
+        let decodedTodo = try? JSONDecoder().decode([TodoItem].self, from: todoData)
+        return decodedTodo ?? []
+    }
+    
+    func saveTodoItem(with todo: TodoItem) {
+        var allTodoItems = storage
+        allTodoItems.append(todo)
+        insertTodoItems(with: allTodoItems)
+    }
+    
+    func insertTodoItems(with data: [TodoItem]) {
+        let encodedTodo = try? JSONEncoder().encode(data)
+        UserDefaults.standard.set(encodedTodo, forKey: key)
+    }
+    
+    func deleteTodoItem(with todoId: Int) {
+        let allTodoItems = storage
+        if allTodoItems.contains(where: { $0.id == todoId }) {
+            insertTodoItems(with: allTodoItems.filter { $0.id != todoId })
+        } else {
+        }
+    }
+    
+    func upadateTodoIsDone(with todoItem: TodoItem){
+        let allTodoItems = storage
+        if var todo = allTodoItems.first(where: { $0.id == todoItem.id }){
+            todo.isDone = todoItem.isDone
+        } else {
+            
+        }
+    }
+    
+    func upadateTodoText(with todoItem: TodoItem){
+        let allTodoItems = storage
+        if var todo = allTodoItems.first(where: { $0.id == todoItem.id }){
+            todo.text = todoItem.text
+        } else {
+            
+        }
+    }
+
+}

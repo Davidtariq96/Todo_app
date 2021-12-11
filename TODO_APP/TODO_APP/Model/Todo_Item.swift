@@ -9,6 +9,6 @@ import Foundation
 
 struct TodoItem: Codable {
     let id: Int
-    let text: String
-    let isDone: Bool
+    var text: String
+    var isDone: Bool
 }
