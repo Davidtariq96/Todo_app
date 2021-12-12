@@ -1,10 +1,3 @@
-//
-//  MainCoordinator.swift
-//  TODO_APP
-//
-//  Created by Decagon on 11/12/2021.
-//
-
 import UIKit
 
 class MainCoordinator: Coordinator {
@@ -19,9 +12,27 @@ class MainCoordinator: Coordinator {
     
     func start() {
         let viewController = ViewController()
-        viewController.view.backgroundColor = .gray
+       
+        viewController.view.backgroundColor = UIColor(patternImage: UIImage(named: "addPageImage")!)
+        viewController.coordinate = self
         controller.pushViewController(viewController, animated: false)
         window.rootViewController = controller
         window.makeKeyAndVisible()
+      
     }
+   
+    func openAdd() {
+        let newViewController = AddToList()
+        newViewController.coordinate = self
+        newViewController.view.backgroundColor = .white
+        controller.pushViewController(newViewController, animated: true)
+        print ("addPage to list has been clicked")
+
+   }
+//    func openDetails(){
+//        let newViewController = Details()
+//        newViewController.coordinate = self
+//        controller.pushViewController(newViewController, animated: true)
+//        print ("details has been tapped")
+//    }
 }
