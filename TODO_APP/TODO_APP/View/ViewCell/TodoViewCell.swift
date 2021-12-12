@@ -5,7 +5,7 @@ class TodoViewCell: UITableViewCell {
     let vc = ViewController()
     var coordinate : MainCoordinator?
     lazy var tickButton = UIButton()
-    lazy var todoTextField = LeftPaddedTextField()
+    lazy var todoLabel = LeftPaddedLabel()
     lazy var deleteButton = UIButton()
  
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -14,17 +14,17 @@ class TodoViewCell: UITableViewCell {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "addPageImage")!)
      }
     
-    
+//    let image = UIImage(systemName: "circle")
     func configureTickButton(){
-        tickButton.setImage(UIImage(named: "leftImage"), for: .normal)
+        tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        tickButton.tintColor = .gray
         tickButton.clipsToBounds = true
        }
     
     func configureTodoLabel(){
-        todoTextField.text = "Knock Thomas"
-        todoTextField.textColor = .label
-        todoTextField.adjustsFontSizeToFitWidth = true
-        todoTextField.isUserInteractionEnabled = true
+        todoLabel.text = "Knock Thomas"
+        todoLabel.textColor = .label
+        todoLabel.adjustsFontSizeToFitWidth = true
     }
    
     func configureDeleteButton(){

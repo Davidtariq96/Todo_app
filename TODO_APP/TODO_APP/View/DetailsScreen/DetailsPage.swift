@@ -13,20 +13,20 @@ class Details: UIViewController {
         self.setNavigationItem()
         
     }
-    lazy var emailTextField: LeftPaddedTextField = {
-        var textField = LeftPaddedTextField()
-        textField.placeholder = "Details would be displayed here when"
-        textField.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1
-        textField.isEnabled = false
-        return textField
+    lazy var detailsTextView: LeftPaddedTextField = {
+        var textView = LeftPaddedTextField()
+        textView.placeholder = "Details of your to-do list would be displayed here when you add one"
+        textView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        textView.layer.cornerRadius = 5
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 1
+        textView.isEnabled = true
+        return textView
     }()
     func addConstraints(){
-        view.addSubview(emailTextField)
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-       _ = emailTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 100, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 50)
+        view.addSubview(detailsTextView)
+        detailsTextView.translatesAutoresizingMaskIntoConstraints = false
+        _ = detailsTextView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 100, leftConstant: 20, bottomConstant: 20, rightConstant: 20, widthConstant: 0, heightConstant: 50)
     }
     
 }

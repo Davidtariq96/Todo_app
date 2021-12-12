@@ -2,6 +2,7 @@ import UIKit
 
 class AddToList: UIViewController {
     var coordinate: MainCoordinator?
+    var textViewHeight = NSLayoutConstraint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -9,18 +10,26 @@ class AddToList: UIViewController {
        }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+//
+//        textViewHeight.constant = self.addToTextView.contentSize.height
         self.navigationConfig()
        
     }
-    lazy var addToListTextField: LeftPaddedTextField = {
-        var textField = LeftPaddedTextField()
-        textField.placeholder = "clik here to add to list"
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1
-        textField.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        textField.layer.cornerRadius = 5
-        return textField
+    lazy var addToTextView: UITextView = {
+        var addTextView = UITextView()
+        addTextView.layer.borderColor = UIColor.lightGray.cgColor
+        addTextView.layer.borderWidth = 1
+        addTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        addTextView.layer.cornerRadius = 5
+        addTextView.text = "Lets go to maldives, It's an exciting place to be they say...No doubt it is I responded"
+        addTextView.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
+        addTextView.font = UIFont.systemFont(ofSize: 20)
+        addTextView.backgroundColor = .clear
+      
+        return addTextView
     }()
+   
     
     lazy var saveButton: UIButton = {
          let button = UIButton(type: .custom)
@@ -34,11 +43,11 @@ class AddToList: UIViewController {
      }()
     
     func configureView(){
-        view.addSubview(addToListTextField)
+        view.addSubview(addToTextView)
         view.addSubview(saveButton)
         constrainTextField()
         constrainSaveButton()
     }
-    
+   
 }
 
