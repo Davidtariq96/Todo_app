@@ -4,7 +4,7 @@ import Foundation
 extension AddToList{
     func constrainTextField(){
         addToTextView.translatesAutoresizingMaskIntoConstraints = false
-    _ = [
+    [
         addToTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
         addToTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
         addToTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),

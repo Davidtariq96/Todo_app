@@ -26,9 +26,10 @@ class TodoViewCell: UITableViewCell {
         todoLabel.textColor = .label
         todoLabel.adjustsFontSizeToFitWidth = true
     }
-   
+ 
     func configureDeleteButton(){
-        deleteButton.setImage(UIImage(named: "deleteImage"), for: .normal)
+        deleteButton.setImage(UIImage(systemName: "bin.xmark"), for: .normal)
+        deleteButton.tintColor = .gray
         deleteButton.clipsToBounds = false
        }
   
