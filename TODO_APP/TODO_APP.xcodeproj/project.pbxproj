@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4297FC0276619220010FB67 /* TodoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FBF276619220010FB67 /* TodoViewCell.swift */; };
+		B4297FC3276619560010FB67 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FC2276619560010FB67 /* Constraints.swift */; };
+		B4297FC5276619680010FB67 /* Constraints+Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FC4276619680010FB67 /* Constraints+Cell.swift */; };
+		B4297FC8276619CE0010FB67 /* DetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FC7276619CE0010FB67 /* DetailsPage.swift */; };
+		B4297FCB27661A1A0010FB67 /* AddPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FCA27661A1A0010FB67 /* AddPage.swift */; };
+		B4297FD02766466D0010FB67 /* NavigationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FCF2766466D0010FB67 /* NavigationExtension.swift */; };
+		B4297FD2276652B20010FB67 /* TextPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FD1276652B20010FB67 /* TextPadding.swift */; };
+		B4297FD427665B070010FB67 /* AddPage+Details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4297FD327665B070010FB67 /* AddPage+Details.swift */; };
 		B4436618276401B6008DFC17 /* Todo_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4436617276401B6008DFC17 /* Todo_ViewModel.swift */; };
 		B443661A276401D5008DFC17 /* Todo_Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4436619276401D5008DFC17 /* Todo_Item.swift */; };
 		B485CF522763A86E00D142A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B485CF512763A86E00D142A8 /* AppDelegate.swift */; };
@@ -19,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4297FBF276619220010FB67 /* TodoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewCell.swift; sourceTree = "<group>"; };
+		B4297FC2276619560010FB67 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		B4297FC4276619680010FB67 /* Constraints+Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Cell.swift"; sourceTree = "<group>"; };
+		B4297FC7276619CE0010FB67 /* DetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPage.swift; sourceTree = "<group>"; };
+		B4297FCA27661A1A0010FB67 /* AddPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPage.swift; sourceTree = "<group>"; };
+		B4297FCF2766466D0010FB67 /* NavigationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationExtension.swift; sourceTree = "<group>"; };
+		B4297FD1276652B20010FB67 /* TextPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPadding.swift; sourceTree = "<group>"; };
+		B4297FD327665B070010FB67 /* AddPage+Details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddPage+Details.swift"; sourceTree = "<group>"; };
 		B4436617276401B6008DFC17 /* Todo_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_ViewModel.swift; sourceTree = "<group>"; };
 		B4436619276401D5008DFC17 /* Todo_Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo_Item.swift; sourceTree = "<group>"; };
 		B485CF4E2763A86E00D142A8 /* TODO_APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TODO_APP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +59,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4297FC1276619430010FB67 /* Constraints */ = {
+			isa = PBXGroup;
+			children = (
+				B4297FC2276619560010FB67 /* Constraints.swift */,
+				B4297FC4276619680010FB67 /* Constraints+Cell.swift */,
+				B4297FD327665B070010FB67 /* AddPage+Details.swift */,
+			);
+			path = Constraints;
+			sourceTree = "<group>";
+		};
+		B4297FC6276619AC0010FB67 /* DetailsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B4297FC7276619CE0010FB67 /* DetailsPage.swift */,
+			);
+			path = DetailsScreen;
+			sourceTree = "<group>";
+		};
+		B4297FC9276619F90010FB67 /* AddTodoList */ = {
+			isa = PBXGroup;
+			children = (
+				B4297FCA27661A1A0010FB67 /* AddPage.swift */,
+			);
+			path = AddTodoList;
+			sourceTree = "<group>";
+		};
+		B4297FCC276645A60010FB67 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B485CF552763A86E00D142A8 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B4297FCD276645B80010FB67 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B4297FBF276619220010FB67 /* TodoViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		B4297FCE276646540010FB67 /* Navigation+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B4297FCF2766466D0010FB67 /* NavigationExtension.swift */,
+			);
+			path = "Navigation+Extension";
+			sourceTree = "<group>";
+		};
 		B485CF452763A86E00D142A8 = {
 			isa = PBXGroup;
 			children = (
@@ -85,7 +151,13 @@
 		B485CF662763D5F200D142A8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B485CF552763A86E00D142A8 /* ViewController.swift */,
+				B4297FD1276652B20010FB67 /* TextPadding.swift */,
+				B4297FCE276646540010FB67 /* Navigation+Extension */,
+				B4297FC9276619F90010FB67 /* AddTodoList */,
+				B4297FC6276619AC0010FB67 /* DetailsScreen */,
+				B4297FC1276619430010FB67 /* Constraints */,
+				B4297FCC276645A60010FB67 /* ViewController */,
+				B4297FCD276645B80010FB67 /* ViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,13 +266,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4297FC5276619680010FB67 /* Constraints+Cell.swift in Sources */,
 				B4436618276401B6008DFC17 /* Todo_ViewModel.swift in Sources */,
 				B4D4CA682764D02A00BC20DF /* MainCoordinator.swift in Sources */,
 				B443661A276401D5008DFC17 /* Todo_Item.swift in Sources */,
+				B4297FD2276652B20010FB67 /* TextPadding.swift in Sources */,
 				B4D4CA662764CFEA00BC20DF /* Coordinator.swift in Sources */,
+				B4297FD02766466D0010FB67 /* NavigationExtension.swift in Sources */,
+				B4297FC3276619560010FB67 /* Constraints.swift in Sources */,
+				B4297FD427665B070010FB67 /* AddPage+Details.swift in Sources */,
 				B485CF562763A86E00D142A8 /* ViewController.swift in Sources */,
 				B485CF522763A86E00D142A8 /* AppDelegate.swift in Sources */,
+				B4297FC0276619220010FB67 /* TodoViewCell.swift in Sources */,
 				B485CF542763A86E00D142A8 /* SceneDelegate.swift in Sources */,
+				B4297FCB27661A1A0010FB67 /* AddPage.swift in Sources */,
+				B4297FC8276619CE0010FB67 /* DetailsPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
