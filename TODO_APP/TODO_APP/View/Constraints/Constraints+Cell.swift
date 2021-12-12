@@ -7,12 +7,13 @@ extension TodoViewCell{
         addSubview(tickButton)
         addSubview(todoTextField)
         addSubview(deleteButton)
+        
         configureTickButton()
         configureTodoLabel()
         configureDeleteButton()
+        
         setTickButtonConstraints()
         setTodoLabelConstraints()
-        configureDeleteButton()
         setDeleteButtonConstraints()
     }
     

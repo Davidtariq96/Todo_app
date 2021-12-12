@@ -1,7 +1,8 @@
 import UIKit
 
 class Details: UIViewController {
-    var coordinate: MainCoordinator?
+    var coordinator: MainCoordinator?
+    var viewModel: TodoViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class Details: UIViewController {
         textField.isEnabled = false
         return textField
     }()
+    
     func addConstraints(){
         view.addSubview(emailTextField)
         emailTextField.translatesAutoresizingMaskIntoConstraints = false

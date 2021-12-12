@@ -1,14 +1,16 @@
 import UIKit
 
 extension ViewController {
+    
     func setNavigationItem() {
         navigationController?.navigationBar.tintColor = UIColor(red: 11/255, green: 146/255, blue: 191/255, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor(red: 11/255, green: 146/255, blue: 191/255, alpha: 1)]
         title = "Your todo List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didTap))
-       }
+    }
+    
     @objc func didTap(){
-        coordinate?.openAdd()
+        coordinator?.openAdd()
     }
 }
 
@@ -18,7 +20,7 @@ extension Details{
         title = "Details"
         view.backgroundColor = UIColor(patternImage: UIImage(named: "addPageImage")!)
         navigationController?.navigationBar.tintColor = .black
-}
+    }
 }
 
 extension AddToList{

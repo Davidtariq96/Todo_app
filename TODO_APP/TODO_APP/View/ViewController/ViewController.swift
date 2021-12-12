@@ -2,7 +2,9 @@ import UIKit
 
 class ViewController : UIViewController {
 
-    var coordinate:MainCoordinator?
+    var coordinator: MainCoordinator?
+    var viewModel: TodoViewModel?
+    
     let cell = "cell"
     
     override func viewDidLoad() {
@@ -13,7 +15,7 @@ class ViewController : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationItem()
-       }
+    }
 
     lazy var tableView: UITableView = {
        var tableView = UITableView()
@@ -36,6 +38,7 @@ class ViewController : UIViewController {
         super.viewDidLayoutSubviews()
         tableView.frame = view.bounds
     }
+    
     func addConstraints(){
         view.addSubview(tableView)
         tableView.pin(to: view)
@@ -46,12 +49,18 @@ class ViewController : UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return viewModel?.storage.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cell) as! TodoViewCell
-       return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cell) as? TodoViewCell else {
+            return UITableViewCell()
+        }
+        guard let todoItem = viewModel?.storage[indexPath.row] else {
+            return cell
+        }
+        cell.todoItem = todoItem
+        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
