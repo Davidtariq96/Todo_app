@@ -3,7 +3,7 @@ import UIKit
 
 class TodoViewCell: UITableViewCell {
     let tickButton = UIButton()
-    let todoTextField = LeftPaddedTextField()
+    let todoLabel = LeftPaddedTextField()
     let deleteButton = UIButton()
     var todoItem: TodoItem?
  
@@ -17,23 +17,25 @@ class TodoViewCell: UITableViewCell {
         tickButton.addTarget(self, action: #selector(toggleIsDone), for: .touchUpInside)
      }
     
-    
+    lazy var todoLabel = LeftPaddedLabel()
     func configureTickButton(){
-        tickButton.setImage(UIImage(named: "leftImage"), for: .normal)
+        tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        tickButton.tintColor = .gray
         tickButton.clipsToBounds = true
        }
     
     func configureTodoLabel(){
-        todoTextField.textColor = .label
-        todoTextField.adjustsFontSizeToFitWidth = true
-        todoTextField.isUserInteractionEnabled = true
+        todoLabel.text = "Knock Thomas"
+        todoLabel.textColor = .label
+        todoLabel.adjustsFontSizeToFitWidth = true
     }
-   
+
     func configureDeleteButton(){
         deleteButton.setImage(UIImage(named: "deleteImage"), for: .normal)
+        deleteButton.tintColor = .gray
         deleteButton.clipsToBounds = false
-    }
-  
+       }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -49,7 +51,7 @@ class TodoViewCell: UITableViewCell {
     }
     
     func setup() {
-        todoTextField.text = todoItem?.text
+        todoLabel.text = todoItem?.text
         toggle(isDone: todoItem?.isDone)
     }
     
@@ -61,3 +63,8 @@ class TodoViewCell: UITableViewCell {
         }
     }
 }
+
+
+/*
+ 
+ */
