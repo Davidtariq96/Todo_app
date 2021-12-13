@@ -1,5 +1,3 @@
-
-import Foundation
 import UIKit
  
 extension UIViewController {
@@ -25,7 +23,7 @@ class LeftPaddedTextField: UITextField {
 
 
 extension TodoViewCell {
-class LeftPaddedTextField: UITextField {
+class LeftPaddedLabel: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
 

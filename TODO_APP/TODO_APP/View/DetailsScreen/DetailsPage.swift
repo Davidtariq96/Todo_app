@@ -14,21 +14,26 @@ class Details: UIViewController {
         self.setNavigationItem()
         
     }
-    lazy var emailTextField: LeftPaddedTextField = {
-        var textField = LeftPaddedTextField()
-        textField.placeholder = "Details would be displayed here when"
-        textField.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        textField.layer.cornerRadius = 5
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1
-        textField.isEnabled = false
-        return textField
+    lazy var detailsTextView:  UITextView = {
+        var detailsTextView = UITextView()
+        detailsTextView.text = "The Details of your liss is saved. apparently, it depends on thomas"
+        detailsTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        detailsTextView.layer.cornerRadius = 5
+        detailsTextView.layer.borderColor = UIColor.lightGray.cgColor
+        detailsTextView.layer.borderWidth = 1
+        detailsTextView.font = UIFont.systemFont(ofSize: 20)
+        detailsTextView.backgroundColor = .clear
+        return detailsTextView
     }()
-    
     func addConstraints(){
-        view.addSubview(emailTextField)
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-       _ = emailTextField.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, topConstant: 100, leftConstant: 20, bottomConstant: 0, rightConstant: 20, widthConstant: 0, heightConstant: 50)
+        view.addSubview(detailsTextView)
+        detailsTextView.translatesAutoresizingMaskIntoConstraints = false
+        [
+            detailsTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            detailsTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            detailsTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            detailsTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ].forEach{ $0.isActive = true}
     }
     
 }
