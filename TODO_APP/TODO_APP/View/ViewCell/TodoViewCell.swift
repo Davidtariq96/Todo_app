@@ -3,7 +3,7 @@ import UIKit
 
 class TodoViewCell: UITableViewCell {
     let tickButton = UIButton()
-    let todoLabel = LeftPaddedTextField()
+    let todoLabel = LeftPaddedLabel()
     let deleteButton = UIButton()
     var todoItem: TodoItem?
  
@@ -17,7 +17,6 @@ class TodoViewCell: UITableViewCell {
         tickButton.addTarget(self, action: #selector(toggleIsDone), for: .touchUpInside)
      }
     
-    lazy var todoLabel = LeftPaddedLabel()
     func configureTickButton(){
         tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
         tickButton.tintColor = .gray

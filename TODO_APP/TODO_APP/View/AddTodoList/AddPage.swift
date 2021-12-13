@@ -20,8 +20,8 @@ class AddToList: UIViewController {
     addTextView.layer.borderWidth = 1
     addTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
     addTextView.layer.cornerRadius = 5
-    addTextView.text = "Lets go to maldives, It's an exciting place to be they say...No doubt it is I responded, We should also consider going to Paris for the new yeaa eve"
-    addTextView.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
+    addTextView.text = "Lets go to maldives, It's an exciting place to be they say...No doubt it is I responded, We should also consider going to Paris for the new yeaa ever. Well life is sweet with money it is more sweet"
+    addTextView.frame = CGRect(x: 0, y: 0, width: 0, height: 500)
     addTextView.font = UIFont.systemFont(ofSize: 20)
     addTextView.backgroundColor = .clear
     return addTextView

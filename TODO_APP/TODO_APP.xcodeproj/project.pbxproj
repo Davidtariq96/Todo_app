@@ -59,14 +59,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B4297FC1276619430010FB67 /* Constraints */ = {
+		B4297FC1276619430010FB67 /* ExtensionConstraints */ = {
 			isa = PBXGroup;
 			children = (
 				B4297FC2276619560010FB67 /* Constraints.swift */,
-				B4297FC4276619680010FB67 /* Constraints+Cell.swift */,
-				B4297FD327665B070010FB67 /* AddPage+Constraints.swift */,
 			);
-			path = Constraints;
+			path = ExtensionConstraints;
 			sourceTree = "<group>";
 		};
 		B4297FC6276619AC0010FB67 /* DetailsScreen */ = {
@@ -80,6 +78,7 @@
 		B4297FC9276619F90010FB67 /* AddTodoList */ = {
 			isa = PBXGroup;
 			children = (
+				B4297FD327665B070010FB67 /* AddPage+Constraints.swift */,
 				B4297FCA27661A1A0010FB67 /* AddPage.swift */,
 			);
 			path = AddTodoList;
@@ -96,6 +95,7 @@
 		B4297FCD276645B80010FB67 /* ViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				B4297FC4276619680010FB67 /* Constraints+Cell.swift */,
 				B4297FBF276619220010FB67 /* TodoViewCell.swift */,
 			);
 			path = ViewCell;
@@ -155,7 +155,7 @@
 				B4297FCE276646540010FB67 /* Navigation+Extension */,
 				B4297FC9276619F90010FB67 /* AddTodoList */,
 				B4297FC6276619AC0010FB67 /* DetailsScreen */,
-				B4297FC1276619430010FB67 /* Constraints */,
+				B4297FC1276619430010FB67 /* ExtensionConstraints */,
 				B4297FCC276645A60010FB67 /* ViewController */,
 				B4297FCD276645B80010FB67 /* ViewCell */,
 			);

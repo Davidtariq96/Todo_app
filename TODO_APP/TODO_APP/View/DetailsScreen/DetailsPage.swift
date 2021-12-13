@@ -16,12 +16,11 @@ class Details: UIViewController {
     }
     lazy var detailsTextView:  UITextView = {
         var detailsTextView = UITextView()
-        detailsTextView.text = "This Details will be saved. apparently, it depends on thomas"
+        detailsTextView.text = "The Details of your liss is saved. apparently, it depends on thomas"
         detailsTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         detailsTextView.layer.cornerRadius = 5
         detailsTextView.layer.borderColor = UIColor.lightGray.cgColor
         detailsTextView.layer.borderWidth = 1
-        detailsTextView.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
         detailsTextView.font = UIFont.systemFont(ofSize: 20)
         detailsTextView.backgroundColor = .clear
         return detailsTextView
