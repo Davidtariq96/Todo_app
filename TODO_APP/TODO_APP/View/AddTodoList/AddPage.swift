@@ -14,14 +14,17 @@ class AddToList: UIViewController {
         self.navigationConfig()
     }
     
-    lazy var addToListTextField: LeftPaddedTextField = {
-        var textField = LeftPaddedTextField()
-        textField.placeholder = "click here to add to list"
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 1
-        textField.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        textField.layer.cornerRadius = 5
-        return textField
+    lazy var addToTextView: UITextView = {
+    var addTextView = UITextView()
+    addTextView.layer.borderColor = UIColor.lightGray.cgColor
+    addTextView.layer.borderWidth = 1
+    addTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+    addTextView.layer.cornerRadius = 5
+    addTextView.text = "Lets go to maldives, It's an exciting place to be they say...No doubt it is I responded, We should also consider going to Paris for the new yeaa eve"
+    addTextView.frame = CGRect(x: 0, y: 0, width: 200, height: 500)
+    addTextView.font = UIFont.systemFont(ofSize: 20)
+    addTextView.backgroundColor = .clear
+    return addTextView
     }()
     
     lazy var saveButton: UIButton = {
@@ -37,7 +40,7 @@ class AddToList: UIViewController {
      }()
     
     func configureView(){
-        view.addSubview(addToListTextField)
+        view.addSubview(addToTextView)
         view.addSubview(saveButton)
         constrainTextField()
         constrainSaveButton()
@@ -45,7 +48,7 @@ class AddToList: UIViewController {
     
     @objc
     func saveTodoItem() {
-        if let addTextField = addToListTextField.text, addTextField != "" {
+        if let addTextField = addToTextView.text, addTextField != "" {
             viewModel?.saveTodoItem(with: TodoItem(id: 0, text: addTextField, isDone: false))
             coordinator?.goBackToHome()
         } else {
@@ -54,4 +57,5 @@ class AddToList: UIViewController {
         }
     }
 }
+
 
