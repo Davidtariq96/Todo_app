@@ -1,4 +1,3 @@
-
 import UIKit
 
 extension TodoViewCell{
@@ -23,7 +22,7 @@ extension TodoViewCell{
         tickButton.widthAnchor.constraint(equalTo: tickButton.heightAnchor, multiplier: 16/9).isActive = true
     }
     func setTodoLabelConstraints(){
-       todoLabel.translatesAutoresizingMaskIntoConstraints = false
+        todoLabel.translatesAutoresizingMaskIntoConstraints = false
         todoLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         todoLabel.leadingAnchor.constraint(equalTo: tickButton.trailingAnchor, constant: 30).isActive = true
         todoLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor).isActive = true

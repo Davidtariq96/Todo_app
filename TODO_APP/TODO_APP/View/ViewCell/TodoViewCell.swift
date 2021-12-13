@@ -1,4 +1,3 @@
-
 import UIKit
 
 class TodoViewCell: UITableViewCell {
@@ -14,7 +13,6 @@ class TodoViewCell: UITableViewCell {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "addPageImage")!)
      }
     
-//    let image = UIImage(systemName: "circle")
     func configureTickButton(){
         tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
         tickButton.tintColor = .gray
