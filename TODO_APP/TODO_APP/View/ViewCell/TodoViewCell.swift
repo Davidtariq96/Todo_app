@@ -28,7 +28,7 @@ class TodoViewCell: UITableViewCell {
     }
  
     func configureDeleteButton(){
-        deleteButton.setImage(UIImage(systemName: "bin.xmark"), for: .normal)
+        deleteButton.setImage(UIImage(named: "deleteImage"), for: .normal)
         deleteButton.tintColor = .gray
         deleteButton.clipsToBounds = false
        }
@@ -37,3 +37,4 @@ class TodoViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
