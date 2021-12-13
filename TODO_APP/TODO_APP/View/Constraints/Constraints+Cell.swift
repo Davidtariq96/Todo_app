@@ -33,8 +33,8 @@ extension TodoViewCell{
     func setDeleteButtonConstraints(){
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        deleteButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        deleteButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        deleteButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        deleteButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
         deleteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
 }
