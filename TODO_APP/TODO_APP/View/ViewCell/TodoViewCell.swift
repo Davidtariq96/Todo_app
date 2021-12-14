@@ -6,6 +6,8 @@ class TodoViewCell: UITableViewCell {
     let todoLabel = LeftPaddedLabel()
     let deleteButton = UIButton()
     var todoItem: TodoItem?
+    var cellActions: CellActions?
+
  
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super .init(style: style, reuseIdentifier: reuseIdentifier)
@@ -17,21 +19,25 @@ class TodoViewCell: UITableViewCell {
         tickButton.addTarget(self, action: #selector(toggleIsDone), for: .touchUpInside)
      }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
     func configureTickButton(){
         tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
         tickButton.tintColor = .gray
         tickButton.clipsToBounds = true
-       }
+    }
     
     func configureTodoLabel(){
-        todoLabel.text = "Knock Thomas"
         todoLabel.textColor = .label
         todoLabel.adjustsFontSizeToFitWidth = true
+        todoLabel.isEnabled = false
     }
 
     func configureDeleteButton(){
         deleteButton.setImage(UIImage(named: "deleteImage"), for: .normal)
-        deleteButton.tintColor = .gray
+        deleteButton.tintColor = .blue
         deleteButton.clipsToBounds = false
        }
 
@@ -39,15 +45,26 @@ class TodoViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        todoLabel.text = ""
+    }
+    
     @objc
     func deleteTodoItem() {
-        print("delete for row \(todoItem?.id) is clicked")
+        if let id = todoItem?.id {
+            cellActions?.deleteAction(id)
+        }
     }
     
     @objc
     func toggleIsDone() {
-        print("toggle for row \(todoItem?.id) is clicked")
+        if var todoItem = todoItem {
+            todoItem.isDone = !todoItem.isDone
+            cellActions?.toggleAction(todoItem)
+        }
     }
+    
     
     func setup() {
         todoLabel.text = todoItem?.text
@@ -56,14 +73,14 @@ class TodoViewCell: UITableViewCell {
     
     func toggle(isDone: Bool?) {
         if let isDone = isDone, isDone {
-            tickButton.setImage(UIImage(named: "leftImage"), for: .normal)
+            tickButton.setImage(UIImage(systemName: "circle.fill"), for: .normal)
         } else {
-            tickButton.setImage(UIImage(named: "leftImage"), for: .normal)
+            tickButton.setImage(UIImage(systemName: "circle"), for: .normal)
         }
     }
 }
 
-
-/*
- 
- */
+protocol CellActions {
+    func deleteAction(_ id: Int)
+    func toggleAction(_ todoItem: TodoItem)
+}

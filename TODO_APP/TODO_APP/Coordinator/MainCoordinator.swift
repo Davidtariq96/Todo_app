@@ -38,10 +38,14 @@ class MainCoordinator: Coordinator {
         controller.popViewController(animated: true)
     }
     
-//    func openDetails(){
-//        let viewController = Details()
-//        viewController.coordinate = self
-//        controller.pushViewController(viewController, animated: true)
-//        print ("details has been tapped")
-//    }
+    func openDetail(of index: Int) {
+        let viewController = Details()
+        viewController.coordinator = self
+        viewController.viewModel = viewModel
+        viewController.setup(text: viewModel.storage.first(where: { todoItem in
+            todoItem.id == index
+        })?.text)
+        controller.pushViewController(viewController, animated: true)
+        print ("details has been tapped")
+    }
 }

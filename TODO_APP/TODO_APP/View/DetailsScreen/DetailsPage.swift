@@ -7,8 +7,24 @@ class Details: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addConstraints()
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setNavigationItem()
@@ -16,7 +32,6 @@ class Details: UIViewController {
     }
     lazy var detailsTextView:  UITextView = {
         var detailsTextView = UITextView()
-        detailsTextView.text = "The Details of your liss is saved. apparently, it depends on thomas"
         detailsTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         detailsTextView.layer.cornerRadius = 5
         detailsTextView.layer.borderColor = UIColor.lightGray.cgColor
@@ -25,6 +40,7 @@ class Details: UIViewController {
         detailsTextView.backgroundColor = .clear
         return detailsTextView
     }()
+    
     func addConstraints(){
         view.addSubview(detailsTextView)
         detailsTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,6 +52,9 @@ class Details: UIViewController {
         ].forEach{ $0.isActive = true}
     }
     
+    func setup(text: String?) {
+        detailsTextView.text = text
+    }
 }
 
 

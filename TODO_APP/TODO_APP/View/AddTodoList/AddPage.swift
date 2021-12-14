@@ -7,6 +7,28 @@ class AddToList: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +42,6 @@ class AddToList: UIViewController {
     addTextView.layer.borderWidth = 1
     addTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
     addTextView.layer.cornerRadius = 5
-    addTextView.text = "Lets go to maldives, It's an exciting place to be they say...No doubt it is I responded, We should also consider going to Paris for the new yeaa ever. Well life is sweet with money it is more sweet"
     addTextView.frame = CGRect(x: 0, y: 0, width: 0, height: 500)
     addTextView.font = UIFont.systemFont(ofSize: 20)
     addTextView.backgroundColor = .clear
