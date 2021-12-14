@@ -49,11 +49,18 @@ class TodoViewModel {
     func upadateTodoText(with todoItem: TodoItem){
         var allTodoItems = storage
         if let todoIndex = allTodoItems.firstIndex(where: { $0.id == todoItem.id }){
-            allTodoItems[todoIndex].isDone = todoItem.isDone
+            allTodoItems[todoIndex].text = todoItem.text
             insertTodoItems(with: allTodoItems)
         } else {
             
         }
+    }
+    
+    func getOneItem (with index: Int ) -> TodoItem?{
+        storage.first(where: {todoitem in
+            todoitem.id == index
+        })
+   
     }
 
 }
