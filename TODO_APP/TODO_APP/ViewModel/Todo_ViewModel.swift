@@ -37,18 +37,20 @@ class TodoViewModel {
     }
     
     func upadateTodoIsDone(with todoItem: TodoItem){
-        let allTodoItems = storage
-        if var todo = allTodoItems.first(where: { $0.id == todoItem.id }){
-            todo.isDone = todoItem.isDone
+        var allTodoItems = storage
+        if let todoIndex = allTodoItems.firstIndex(where: { $0.id == todoItem.id }){
+            allTodoItems[todoIndex].isDone = todoItem.isDone
+            insertTodoItems(with: allTodoItems)
         } else {
             
         }
     }
     
     func upadateTodoText(with todoItem: TodoItem){
-        let allTodoItems = storage
-        if var todo = allTodoItems.first(where: { $0.id == todoItem.id }){
-            todo.text = todoItem.text
+        var allTodoItems = storage
+        if let todoIndex = allTodoItems.firstIndex(where: { $0.id == todoItem.id }){
+            allTodoItems[todoIndex].isDone = todoItem.isDone
+            insertTodoItems(with: allTodoItems)
         } else {
             
         }
