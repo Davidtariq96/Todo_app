@@ -3,15 +3,15 @@ import UIKit
 extension TodoViewCell{
     
     func configureCell(){
-        addSubview(tickButton)
-        addSubview(todoLabel)
-        addSubview(deleteButton)
+        contentView.addSubview(tickButton)
+        contentView.addSubview(todoLabel)
+        contentView.addSubview(deleteButton)
         configureTickButton()
         configureTodoLabel()
         configureDeleteButton()
         setTickButtonConstraints()
         setTodoLabelConstraints()
-        configureDeleteButton()
+//        configureDeleteButton()
         setDeleteButtonConstraints()
     }
     func setTickButtonConstraints(){
