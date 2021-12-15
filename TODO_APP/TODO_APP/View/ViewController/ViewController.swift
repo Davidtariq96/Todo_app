@@ -73,28 +73,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         if let id = id {
             coordinator?.openDetail(of: id)
         }
-        print ("cell has been tapped")
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let deleteAction = UIContextualAction(style: .normal, title: "Update") { (action, view, handler) in
-            print("Update Action Tapped")
-            tableView.reloadData()
+        let toggleAction = UIContextualAction(style: .normal, title: "Update") {[weak self] (action, view, handler) in
+            self?.toggle(indexPath)
         }
-        deleteAction.backgroundColor = .green
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        toggleAction.backgroundColor = .green
+        let configuration = UISwipeActionsConfiguration(actions: [toggleAction])
         configuration.performsFirstActionWithFullSwipe = false
         return configuration
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {[weak self] (action, view, handler) in
-            print("Delete Action Tapped")
-            if let id = self?.viewModel?.storage[indexPath.row].id {
-                self?.viewModel?.deleteTodoItem(with: id)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
-            }
+            self?.delete(indexPath)
         }
         deleteAction.backgroundColor = .red
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
@@ -107,16 +100,20 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
         true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            if let id = viewModel?.storage[indexPath.row].id {
-                viewModel?.deleteTodoItem(with: id)
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
+    func toggle(_ indexPath: IndexPath) {
+        if let id = viewModel?.storage[indexPath.row].id, var todo = viewModel?.getOneItem(with: id){
+            todo.isDone = !todo.isDone
+            viewModel?.upadateTodoIsDone(with: todo)
+            tableView.reloadData()
         }
-//        else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//        }
+    }
+    
+    func delete(_ indexPath: IndexPath) {
+        if let id = viewModel?.storage[indexPath.row].id {
+            viewModel?.deleteTodoItem(with: id)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+        }
     }
     
     

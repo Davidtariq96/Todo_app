@@ -19,7 +19,9 @@ class TodoViewModel {
     
     func saveTodoItem(with todo: TodoItem) {
         var allTodoItems = storage
-        allTodoItems.append(todo)
+        let id = allTodoItems.map{$0.id}.max() ?? 0
+        let saveTodo = TodoItem(id: id + 1, text: todo.text, isDone: todo.isDone)
+        allTodoItems.append(saveTodo)
         insertTodoItems(with: allTodoItems)
     }
     
