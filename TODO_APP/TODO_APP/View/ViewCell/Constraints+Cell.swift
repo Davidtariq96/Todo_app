@@ -17,12 +17,12 @@ extension TodoViewCell {
         tickButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         tickButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         tickButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        tickButton.widthAnchor.constraint(equalTo: tickButton.heightAnchor, multiplier: 16/9).isActive = true
+        tickButton.widthAnchor.constraint(equalTo: tickButton.heightAnchor, multiplier: 10/9).isActive = true
     }
     func setTodoLabelConstraints() {
         todoLabel.translatesAutoresizingMaskIntoConstraints = false
         todoLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        todoLabel.leadingAnchor.constraint(equalTo: tickButton.trailingAnchor, constant: 30).isActive = true
+        todoLabel.leadingAnchor.constraint(equalTo: tickButton.trailingAnchor, constant: 10).isActive = true
         todoLabel.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor).isActive = true
         todoLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         todoLabel.widthAnchor.constraint(equalTo: todoLabel.heightAnchor, multiplier: 16/9).isActive = true
