@@ -1,6 +1,4 @@
 import UIKit
- 
-extension UIViewController {
 class LeftPaddedTextField: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
@@ -16,13 +14,8 @@ class LeftPaddedTextField: UITextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    
-}
 }
 
-
-
-extension TodoViewCell {
 class LeftPaddedLabel: UITextField {
 
     let padding = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5)
@@ -38,6 +31,4 @@ class LeftPaddedLabel: UITextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    
-}
 }
