@@ -31,7 +31,7 @@ class TodoViewCell: UITableViewCell {
     
     func configureTodoLabel(){
         todoLabel.textColor = .label
-        todoLabel.adjustsFontSizeToFitWidth = true
+        todoLabel.adjustsFontSizeToFitWidth = false
         todoLabel.isEnabled = false
     }
 
