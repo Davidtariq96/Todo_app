@@ -42,9 +42,9 @@ class MainCoordinator: Coordinator {
         let viewController = Details()
         viewController.coordinator = self
         viewController.viewModel = viewModel
-        viewController.setup(text: viewModel.storage.first(where: { todoItem in
-            todoItem.id == index
-        })?.text)
+        let todo = viewModel.getOneItem(with: index)
+        viewController.id = todo?.id
+        viewController.setup(text: todo?.text)
         controller.pushViewController(viewController, animated: true)
         print ("details has been tapped")
     }

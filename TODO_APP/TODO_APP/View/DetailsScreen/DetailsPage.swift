@@ -3,26 +3,18 @@ import UIKit
 class Details: UIViewController {
     var coordinator: MainCoordinator?
     var viewModel: TodoViewModel?
+    var id: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addConstraints()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        let backButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveTodo))
+        navigationItem.rightBarButtonItem = backButton
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +22,7 @@ class Details: UIViewController {
         self.setNavigationItem()
         
     }
+    
     lazy var detailsTextView:  UITextView = {
         var detailsTextView = UITextView()
         detailsTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
@@ -48,12 +41,24 @@ class Details: UIViewController {
             detailsTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             detailsTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             detailsTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            detailsTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            detailsTextView.heightAnchor.constraint(equalToConstant: 300)
         ].forEach{ $0.isActive = true}
     }
     
     func setup(text: String?) {
         detailsTextView.text = text
+    }
+    
+    func updateTodo() {
+        if let id = id, let text = detailsTextView.text {
+            viewModel?.upadateTodoText(with: TodoItem(id: id, text: text, isDone: false))
+        }
+    }
+    
+    @objc
+    func saveTodo() {
+        updateTodo()
+        coordinator?.goBackToHome()
     }
 }
 
